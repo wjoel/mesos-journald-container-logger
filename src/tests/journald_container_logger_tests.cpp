@@ -113,7 +113,7 @@ using namespace mesos;
 
 namespace journald_container_logger_test {
 
-const char* DEFAULT_MODULE_LIBRARY_NAME = "./libmesos_journald_container_logger.so";
+const char* DEFAULT_MODULE_LIBRARY_NAME = "./libmesos_journald_container_logger-0.1.0.so";
 const char* DEFAULT_MODULE_NAME = "com_wjoel_JournaldContainerLogger";
 
 class JournaldContainerLoggerTest : public MesosTest
