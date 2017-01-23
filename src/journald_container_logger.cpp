@@ -79,7 +79,7 @@ public:
 
     // Although somewhat specific to Marathon, we look for the environment
     // variable MESOS_TASK_ID and use that as the journal identifier
-    // if we find it.
+    // if we find it.  Otherwise we use the value of the executor id.
     std::string identifier;
     if (executorInfo.has_command() &&
         executorInfo.command().has_environment()) {
@@ -90,6 +90,8 @@ public:
           break;
         }
       }
+    } else {
+      identifier = executorInfo.executor_id().value();
     }
 
     journal_out = sd_journal_stream_fd(identifier.c_str(), LOG_INFO, 1);
